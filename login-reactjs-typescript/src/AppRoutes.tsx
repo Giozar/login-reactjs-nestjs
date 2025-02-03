@@ -4,6 +4,7 @@ import './AppRoutes.css'
 import MainLayout from './layouts/MainLayout'
 import HomePage from './features/home/page/HomePage'
 import Login from './features/auth/components/Login'
+import Register from './features/auth/components/Register'
 
 function AppRoutes() {
 
@@ -11,7 +12,8 @@ function AppRoutes() {
     <MainLayout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </MainLayout>
   )

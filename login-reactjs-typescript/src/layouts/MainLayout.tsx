@@ -3,12 +3,14 @@ interface LayoutProps {
 }
 
 import Header from '../common/components/Header';
+import { AuthProvider } from '../features/auth/context/AuthContext';
 import './MainLayout.css'
 
 export default function MainLayout({ children }: LayoutProps) {
 
     return (
-        <div>
+        <AuthProvider>
+            <div>
             <Header />
 
             <main>
@@ -19,6 +21,7 @@ export default function MainLayout({ children }: LayoutProps) {
                 <p>Mi footer</p>
             </footer>
         </div>
+        </AuthProvider>
     )
     
 };

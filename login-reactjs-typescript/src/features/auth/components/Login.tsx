@@ -2,23 +2,32 @@ import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function Login() {
 
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
 
     const handleChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
-        console.log(e.target.value);
+        const emailValue = e.target.value;
+        if( emailValue )
+            setEmail(emailValue);
+        console.log(emailValue);
+        
     }
 
     const handleChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
-        console.log(e.target.value);
+        const passwordValue = e.target.value;
+        if( passwordValue )
+            setPassword(passwordValue);
+        console.log(passwordValue);
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
         const data = Object.fromEntries( new FormData(e.currentTarget));
         console.log(data);
+
+        console.log({ email, password });
     }
 
     return (
